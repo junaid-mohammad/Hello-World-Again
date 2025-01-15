@@ -39,13 +39,16 @@ const postSchema = new mongoose.Schema({
 const Post = mongoose.model("Post", postSchema);
 
 // Route to render the Home page with all blog posts
-app.get("/", function (req, res) {
-  Post.find({}, function (err, posts) {
+app.get("/", async function (req, res) {
+  try {
+    const posts = await Post.find({});
     res.render("home", {
       startingContent: homeStartingContent,
       posts: posts
     });
-  });
+  } catch (err) {
+    console.error("Error fetching posts:", err);
+  }
 });
 
 // Route to render the Compose page
@@ -54,32 +57,37 @@ app.get("/compose", function (req, res) {
 });
 
 // Route to handle form submission for new blog posts
-app.post("/compose", function (req, res) {
+app.post("/compose", async function (req, res) {
   const post = new Post({
     title: req.body.postTitle,
     content: req.body.postBody
   });
 
-  // Save the post to the database and redirect to the Home page
-  post.save(function (err) {
-    if (!err) {
-      res.redirect("/");
-    }
-  });
+  try {
+    await post.save();
+    res.redirect("/");
+  } catch (err) {
+    console.error("Error saving post:", err);
+  }
 });
 
 // Route to render individual blog posts based on their ID
-app.get("/posts/:postId", function (req, res) {
+app.get("/posts/:postId", async function (req, res) {
   const requestedPostId = req.params.postId;
 
-  Post.findOne({ _id: requestedPostId }, function (err, post) {
-    if (!err) {
+  try {
+    const post = await Post.findOne({ _id: requestedPostId });
+    if (post) {
       res.render("post", {
         title: post.title,
         content: post.content
       });
+    } else {
+      res.redirect("/");
     }
-  });
+  } catch (err) {
+    console.error("Error fetching post:", err);
+  }
 });
 
 // Route to render the About page
@@ -89,7 +97,7 @@ app.get("/about", function (req, res) {
 
 // Route to render the Contact page
 app.get("/contact", function (req, res) {
-  res.render("contact", { contactContent: contactContent });
+  res.render("contact", {});
 });
 
 // POST route to handle form submissions on the Contact page

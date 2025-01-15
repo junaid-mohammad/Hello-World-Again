@@ -1,22 +1,22 @@
 {
-  "name": "ejs-challenge",
-  "version": "1.0.0",
-  "description": "",
+  "name": "personal-blog",
+  "version": "2.0.0",
+  "description": "A personal blog platform built using Node.js, Express, EJS templating, and MongoDB. The blog allows users to create, view, and manage blog posts in an interactive and responsive web interface.",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js"
   },
-  "author": "Junaid",
+  "author": "Junaid Arif",
   "license": "ISC",
   "engines": {
     "node": "18.12.1"
   },
   "dependencies": {
-    "body-parser": "^1.18.3",
-    "ejs": "^2.6.1",
-    "express": "^4.16.3",
-    "lodash": "^4.17.11",
-    "mongoose": "^5.13.15"
+    "body-parser": "^1.20.3",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "lodash": "^4.17.21",
+    "mongoose": "^7.1.1"
   }
 }
