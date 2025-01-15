@@ -7,7 +7,8 @@ This repository contains the source code for my **Personal Blog**, a platform de
 ## 🖥️ Live Website
 
 You can access the live version of the Personal Blog here:  
-👉 **[Personal Blog]()** (Hosted on Microsoft Azure - Link coming soon)
+👉 **[Personal Blog](https://persoanl-blog-fcgbauhzase4hkhd.canadacentral-01.azurewebsites.net/)** Hosted on Microsoft Azure
+
 Old version of the Website can be found here: 👉 **[Personal Blog](https://blog-junaid.onrender.com)**
 
 Link to **[Azure Project](https://dev.azure.com/Junaid-Arif/Personal%20Blog)**
