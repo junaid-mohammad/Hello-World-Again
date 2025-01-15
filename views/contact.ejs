@@ -1,4 +1,16 @@
 <%- include("partials/header"); -%>
-    <h1>Contact</h1>
-    <p> <%= contactContent %> </p>
+<h1>Contact Me</h1>
+
+    <form action="/contact" method="POST">
+    <input name="name" type="text" class="feedback-input" placeholder="Name" required />
+    <input name="email" type="email" class="feedback-input" placeholder="Email" required />
+    <textarea name="text" class="feedback-input" placeholder="Comment" required></textarea>
+    <input type="submit" value="SUBMIT" />
+    </form>
+
+    <!-- Display Thank You Message -->
+    <% if (typeof thankYouMessage !== 'undefined') { %>
+    <p class="thank-you-message"><%= thankYouMessage %></p>
+    <% } %>
+
 <%- include("partials/footer"); -%>

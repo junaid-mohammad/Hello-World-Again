@@ -1,4 +1,21 @@
-/node_modules
-npm-debug.log
+# Logs and temporary files
+*.log
+*.tmp
+npm-debug.log*
+
+# OS-specific files
 .DS_Store
-/*.env
+Thumbs.db
+
+# Node.js dependencies
+node_modules/
+.env
+
+# IDE/project files
+.vscode/
+.idea/
+
+# Build and cache files
+dist/
+build/
+.cache/
