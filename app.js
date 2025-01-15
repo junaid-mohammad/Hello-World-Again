@@ -10,6 +10,7 @@ const aboutContent = "Welcome to my personal blog, where I share my journey as a
 
 // Initialize the Express app
 const app = express();
+const port = process.env.PORT || 3000;
 
 // Set the view engine to EJS
 app.set('view engine', 'ejs');
@@ -116,6 +117,6 @@ app.post("/contact", (req, res) => {
 });
 
 // Start the server and listen on port 3000
-app.listen(3000, function () {
-  console.log("Server started on port 3000");
+app.listen(port, () => {
+  console.log(`Listening on port ${port}`);
 });

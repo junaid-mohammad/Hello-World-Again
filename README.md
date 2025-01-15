@@ -10,6 +10,8 @@ You can access the live version of the Personal Blog here:
 👉 **[Personal Blog]()** (Hosted on Microsoft Azure - Link coming soon)
 Old version of the Website can be found here: 👉 **[Personal Blog](https://blog-junaid.onrender.com)**
 
+Link to **[Azure Project](https://dev.azure.com/Junaid-Arif/Personal%20Blog)**
+
 ---
 
 ## 🎯 Purpose
