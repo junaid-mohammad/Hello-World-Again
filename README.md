@@ -1,5 +1,8 @@
 # Personal Blog
 
+[![Azure DevOps](https://img.shields.io/badge/Deployed%20via-Azure%20DevOps-blue)](https://dev.azure.com/Junaid-Arif/Personal%20Blog)
+[![Azure App Service](https://img.shields.io/badge/Hosted%20on-Azure%20App%20Service-brightgreen)](https://persoanl-blog-fcgbauhzase4hkhd.canadacentral-01.azurewebsites.net)
+
 This repository contains the source code for my **Personal Blog**, a platform designed to share my journey, experiences, and insights throughout my time at McGill University and beyond. The project is built using **Node.js**, **Express**, **EJS templating** and **MongoDB**, with a focus on creating a clean, visually appealing, and user-friendly blogging platform.
 
 ---
@@ -75,19 +78,19 @@ The **Personal Blog** app is hosted on **Microsoft Azure App Service** with the 
 
 1. **Created Azure App Service**
 
-   * Set up a new App Service instance through the Azure portal.
+   - Set up a new App Service instance through the Azure portal.
 
 2. **Created GitHub Repo**
 
-   * Initialized a new GitHub repository (`Personal-Blog`) and pushed all project files to it.
+   - Initialized a new GitHub repository (`Personal-Blog`) and pushed all project files to it.
 
 3. **Created Azure DevOps Project**
 
-   * Created a project called *Personal Blog* in Azure DevOps.
+   - Created a project called _Personal Blog_ in Azure DevOps.
 
 4. **Added Azure DevOps as a Git Remote**
 
-   * Used the following to connect local code to Azure DevOps:
+   - Used the following to connect local code to Azure DevOps:
 
      ```bash
      git remote add azure https://Junaid-Arif@dev.azure.com/Junaid-Arif/Personal%20Blog/_git/Personal%20Blog
@@ -95,7 +98,7 @@ The **Personal Blog** app is hosted on **Microsoft Azure App Service** with the 
 
 5. **Push to Both Remotes**
 
-   * Pushed the same codebase to both GitHub (`origin`) and Azure DevOps (`azure`):
+   - Pushed the same codebase to both GitHub (`origin`) and Azure DevOps (`azure`):
 
      ```bash
      git push origin main
@@ -104,15 +107,15 @@ The **Personal Blog** app is hosted on **Microsoft Azure App Service** with the 
 
 6. **Configured Azure App Service to Pull from Azure DevOps Repo**
 
-   * In the App Service Deployment Center, linked the Azure DevOps repo for Continuous Deployment (CI/CD).
+   - In the App Service Deployment Center, linked the Azure DevOps repo for Continuous Deployment (CI/CD).
 
 7. **Deployment Trigger Testing**
 
-   * Confirmed that pushing to Azure DevOps automatically triggers a deployment to Azure App Service.
+   - Confirmed that pushing to Azure DevOps automatically triggers a deployment to Azure App Service.
 
 8. **Port & Environment Configuration**
 
-   * The app dynamically uses the Azure port and MongoDB URI:
+   - The app dynamically uses the Azure port and MongoDB URI:
 
      ```javascript
      const port = process.env.PORT || 3000;
