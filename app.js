@@ -4,8 +4,8 @@ const bodyParser = require("body-parser");    // Middleware to parse request bod
 const ejs = require("ejs");                   // Templating engine for rendering dynamic views
 const mongoose = require('mongoose');         // MongoDB library to interact with the database
 require("dotenv").config();                   // Load environment variables from .env file
-const { homeStartingContent, aboutContent }   // Import the starting content for the Home and About pages
-        = require('./data/content');
+const { homeStartingContent, aboutContent }   
+        = require('./data/content');          // Import the starting content for the Home and About pages
 
 // Initialize the Express app
 const app = express();
@@ -110,6 +110,11 @@ app.post("/contact", (req, res) => {
   res.render("contact", {
     thankYouMessage: `Thank you, ${userName}! Your message has been received.`,
   });
+});
+
+// Debug route to check if the app is running
+app.get("/debug", (req, res) => {
+  res.send("✅ App is running. Environment works.");
 });
 
 // Start the server and listen on port 3000
