@@ -1,16 +1,35 @@
 {
-  "name": "personal-blog",
-  "version": "2.0.0",
-  "description": "A personal blog platform built using Node.js, Express, EJS templating, and MongoDB. The blog allows users to create, view, and manage blog posts in an interactive and responsive web interface.",
+  "name": "hello-world-again",
+  "version": "2.1.0",
+  "description": "Hello, World Again 📣 is a personal blog platform for sharing thoughts, stories, and reflections. Built with Node.js, Express, MongoDB, and EJS, and deployed via GitHub and Azure. The app supports creating, viewing, and managing blog posts in a beautifully styled interface with full CI/CD integration.",
   "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
-  },
-  "author": "Junaid Arif",
-  "license": "ISC",
   "engines": {
-    "node": "18.12.1"
+    "node": ">=18.0.0",
+    "npm": ">=6.0.0"
+  },
+  "homepage": "https://hello-world-again-akb5d9h6hme3ffcx.canadacentral-01.azurewebsites.net/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/junaid-mohammad/Hello-World-Again.git"
+  },
+  "bugs": "",
+  "keywords": [
+    "Blog",
+    "EJS",
+    "Express",
+    "MongoDB",
+    "Node.js",
+    "Personal",
+    "Portfolio",
+    "Azure App Service",
+    "CI/CD"
+  ],
+  "author": "Junaid Arif",
+  "contributors": [],
+  "scripts": {
+    "dev": "nodemon app.js",
+    "start": "node app.js",
+    "test": ""
   },
   "dependencies": {
     "body-parser": "^1.20.3",
@@ -19,5 +38,9 @@
     "express": "^4.21.2",
     "lodash": "^4.17.21",
     "mongoose": "^7.1.1"
-  }
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  },
+  "license": "ISC"
 }
