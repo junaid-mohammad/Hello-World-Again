@@ -19,7 +19,7 @@ i {
 }
 
 .navbar-logo:hover{
-  color: #212529;
+  color: #333;
 }
 
 .navbar-mainbg {
@@ -57,7 +57,7 @@ i {
 }
 
 #navbarSupportedContent ul li a:hover {
-  color: #212529;
+  color: #333;
 }
 
 #navbarSupportedContent > ul > li.active > a {
@@ -236,7 +236,7 @@ footer .social_icon li a {
 
 footer .social_icon li a:hover {
   transform: translateY(-15px);
-  color: #212529;
+  color: #333;
 }
 
 footer .menu li a {
@@ -251,11 +251,11 @@ footer .menu li a {
 
 footer .menu li a:hover {
   opacity: 1;
-  color: #212529;
+  color: #333;
 }
 
 p {
-  color: whtie;
+  color: #444;
   text-align: center;
   margin-top: 15px;
   margin-bottom: 10px;

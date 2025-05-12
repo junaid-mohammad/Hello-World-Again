@@ -1,12 +1,11 @@
 // Import the necessary packages
-const express = require("express"); // Express framework to build the web app
-const bodyParser = require("body-parser"); // Middleware to parse request bodies
-const ejs = require("ejs"); // Templating engine for rendering dynamic views
-const mongoose = require('mongoose'); // MongoDB library to interact with the database
-
-// Starting content for the Home and About pages
-const homeStartingContent = "Welcome to my personal blog! My name is Junaid, and I am graduating soon as a computer engineer from McGill. During my second year, I had created this platform as a way to express my thoughts, reflect on my experiences, and share my journey with the world. Here, you will find insights into my student and professional life, including the skills I have developed, the lessons I have learned, and the projects I have undertaken. Whether you're looking for inspiration, motivation, or just a fresh perspective, I hope you'll find something of value here. So, make yourself at home, grab a cup of coffee, and join me on my journey as I explore the world of technology, engineering, and personal growth.";
-const aboutContent = "Welcome to my personal blog, where I share my journey as a computer engineering student at McGill University. This platform serves as a creative outlet for me to document my experiences, reflect on my personal and professional growth, and connect with like-minded individuals. From my involvement in various student organizations and internships, to my personal projects and self-learning, I aim to provide a glimpse into my life and the lessons I've learned along the way. I have built this blog using cutting-edge technologies such as Node.js, Express.js and MongoDB, and will continue to add new features and improve the user experience. Join me on my journey and let's learn, grow and connect together.";
+const express = require("express");           // Express framework to build the web app
+const bodyParser = require("body-parser");    // Middleware to parse request bodies
+const ejs = require("ejs");                   // Templating engine for rendering dynamic views
+const mongoose = require('mongoose');         // MongoDB library to interact with the database
+require("dotenv").config();                   // Load environment variables from .env file
+const { homeStartingContent, aboutContent }   // Import the starting content for the Home and About pages
+        = require('./data/content');
 
 // Initialize the Express app
 const app = express();
@@ -22,7 +21,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 // Connect to the MongoDB database
-mongoose.connect("[REDACTED]", {
+mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
@@ -106,9 +105,6 @@ app.post("/contact", (req, res) => {
   const userName = req.body.name;
   const userEmail = req.body.email;
   const userComment = req.body.text;
-
-  // Log the user's input to the console
-  // console.log(`Name: ${userName}, Email: ${userEmail}, Comment: ${userComment}`);
 
   // Render the contact page with a thank-you message
   res.render("contact", {
