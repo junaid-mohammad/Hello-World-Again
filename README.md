@@ -1,10 +1,12 @@
 # Hello, World Again 📝
 
-[![Azure DevOps](https://img.shields.io/badge/Tracking-Azure%20DevOps-blue?logo=azuredevops)](https://dev.azure.com/Junaid-Arif/Hello%20World%20Again)
-[![Azure App Service](https://img.shields.io/badge/Hosted-Azure%20App%20Service-brightgreen?logo=windows)](https://hello-world-again-akb5d9h6hme3ffcx.canadacentral-01.azurewebsites.net/)
-[![GitHub Repo](https://img.shields.io/badge/Source-GitHub-black?logo=github)](https://github.com/junaid-mohammad/Hello-World-Again)
+[![Deployed via GitHub Actions](https://img.shields.io/badge/Deployed%20via-GitHub%20Actions-blue?logo=github)](https://github.com/junaid-mohammad/Hello-World-Again)
+[![Azure App Service](https://img.shields.io/badge/Hosted%20on-Azure%20App%20Service-brightgreen)](https://hello-world-again-akb5d9h6hme3ffcx.canadacentral-01.azurewebsites.net/)
+[![Azure DevOps](https://img.shields.io/badge/Tracked%20in-Azure%20DevOps-blue)](https://dev.azure.com/Junaid-Arif/Hello%20World%20Again)
 
 This repository contains the source code for **Hello, World Again** — a personal blogging platform built to share life stories, reflections, and development updates in a professional yet approachable format. It was originally started as a university side project and has since evolved into a polished, production-ready portfolio piece. The project is built using **Node.js**, **Express**, **EJS templating** and **MongoDB**, with a focus on creating a clean, visually appealing, and user-friendly blogging platform.
+
+> 💡 Deployed using GitHub Actions to Microsoft Azure. Azure DevOps retained for version control tracking.
 
 ---
 
@@ -12,8 +14,8 @@ This repository contains the source code for **Hello, World Again** — a person
 
 👉 **[Live App](https://hello-world-again-akb5d9h6hme3ffcx.canadacentral-01.azurewebsites.net/)** (Azure App Service)  
 👉 **[Old Version](https://blog-junaid.onrender.com)** (Render: Cloud Application Platform)  
-📈 **[Azure DevOps Project for CI/CD](https://dev.azure.com/Junaid-Arif/Hello%20World%20Again)**  
-📁 **[GitHub Repo](https://github.com/junaid-mohammad/Hello-World-Again)**
+📈 **[GitHub Repo](https://github.com/junaid-mohammad/Hello-World-Again)**  
+📁 **[Azure DevOps Project for CI/CD](https://dev.azure.com/Junaid-Arif/Hello%20World%20Again)**
 
 ---
 
@@ -50,7 +52,7 @@ This Project was initially created during my second year at McGill to document m
 | Frontend | EJS, HTML5, CSS3, Bootstrap             |
 | Database | MongoDB Atlas                           |
 | Hosting  | Azure App Service                       |
-| CI/CD    | Manual GitHub Deploy + Azure DevOps     |
+| CI/CD    | GitHub Actions + Azure DevOps           |
 | Security | `.env` files for secrets (via `dotenv`) |
 
 > ℹ️ The project uses **CommonJS modules** (`require`) instead of ES6 modules (`import`), so `"type": "module"` is intentionally omitted from `package.json`.
@@ -69,13 +71,19 @@ This Project was initially created during my second year at McGill to document m
 
 ---
 
+Here's the updated version of that section reflecting the switch to **GitHub Actions** for deployment while retaining **Azure DevOps** for tracking, and explaining the deployment issues just like we did for _Love Roulette_.
+
+---
+
 ## 🚀 Deployment & Workflow
 
 ### 🛠 Deployment Overview
 
-- **App Service URL**: [hello-world-again](https://hello-world-again-akb5d9h6hme3ffcx.canadacentral-01.azurewebsites.net/)
+The **Hello, World Again** app is hosted on **Microsoft Azure App Service**, deployed via **GitHub Actions**, and version-controlled using both **GitHub** and **Azure DevOps**.
+
+- **App Service URL**: [`hello-world-again`](https://hello-world-again-akb5d9h6hme3ffcx.canadacentral-01.azurewebsites.net/)
 - **GitHub Repo**: [`Hello-World-Again`](https://github.com/junaid-mohammad/Hello-World-Again)
-- **Azure DevOps Project**: [`Hello World Again`](https://dev.azure.com/Junaid-Arif/Hello%20World%20Again)
+- **Azure DevOps**: [`Hello World Again`](https://dev.azure.com/Junaid-Arif/Hello%20World%20Again)
 
 ---
 
@@ -86,20 +94,25 @@ This Project was initially created during my second year at McGill to document m
 | `.env` setup           | Sensitive variables like `MONGODB_URI` are stored in `.env` (not pushed to GitHub) |
 | `dotenv` config        | App reads from `.env` via `require('dotenv').config()`                             |
 | Filter history rewrite | Previous commits scrubbed using `git filter-repo` with `--replace-text`            |
-| GitHub primary remote  | All development pushed to GitHub                                                   |
-| Azure DevOps tracking  | Kept for backup and version control transparency                                   |
+| GitHub primary remote  | All development pushed to GitHub for deployment                                    |
+| Azure DevOps tracking  | Retained for version control and future CI/CD experimentation                      |
 
 ---
 
-## 🚀 Deployment & Workflow
+### 🛠 Deployment Setup (What Happened)
 
-The **Hello, World Again** app is hosted on **Microsoft Azure App Service** and deployed using **Azure DevOps**, with code managed on **GitHub** for redundancy and version tracking.
+Initially, the app was configured to deploy using **Azure DevOps**, but persistent issues made deployment unreliable:
 
----
+- Azure App Service failed to detect the `package.json` and `index.js` when connected to Azure Repos.
+- CI/CD pipelines via Azure DevOps stalled or deployed only static fallback content (`hostingstart.html`).
+- ZIP deployment and Kudu console workarounds also failed to reflect a working app in `/home/site/wwwroot`.
 
-### 🛠 Deployment Setup
+After significant debugging and cleanup, deployment was successfully migrated to **GitHub Actions**, which provided:
 
-The application uses a **single Azure App Service** for hosting, with CI/CD managed manually via Azure DevOps. GitHub is linked as a secondary remote for version control history and backup.
+- Automatic YAML workflow generation
+- Clear logs for build and deploy steps
+- Seamless integration with Azure App Service
+- Consistent and reliable live deployment
 
 ---
 
@@ -107,66 +120,53 @@ The application uses a **single Azure App Service** for hosting, with CI/CD mana
 
 1. **Created Azure App Service**
 
-   - Set up a new App Service instance via Azure Portal:
-     👉 [hello-world-again](https://hello-world-again-akb5d9h6hme3ffcx.canadacentral-01.azurewebsites.net)
+   - Provisioned via Azure Portal:
+     👉 [`hello-world-again`](https://hello-world-again-akb5d9h6hme3ffcx.canadacentral-01.azurewebsites.net)
 
 2. **Created GitHub Repo**
 
-   - Repository: [`Hello-World-Again`](https://github.com/junaid-mohammad/Hello-World-Again)
-   - Initialized a local project and pushed all files to GitHub.
+   - Repo: [`Hello-World-Again`](https://github.com/junaid-mohammad/Hello-World-Again)
+   - Used for both development and production deployment.
 
 3. **Created Azure DevOps Project**
 
    - Project: [`Hello World Again`](https://dev.azure.com/Junaid-Arif/Hello%20World%20Again)
-   - Set up for source control tracking (not active deployment).
+   - Used solely for source control tracking (not CI/CD).
 
 4. **Added Azure DevOps as a Git Remote**
 
-   - Used the following command to register Azure as a secondary remote:
+   ```bash
+   git remote add azure https://Junaid-Arif@dev.azure.com/Junaid-Arif/Hello%20World%20Again/_git/Hello%20World%20Again
+   ```
 
-     ```bash
-     git remote add azure https://Junaid-Arif@dev.azure.com/Junaid-Arif/Hello%20World%20Again/_git/Hello%20World%20Again
-     ```
+5. **Configured Azure App Service to Pull from GitHub**
 
-5. **Push to Both Remotes**
+   - Set up GitHub Actions in the Deployment Center with `main` branch.
+   - Azure App Service now builds and deploys from GitHub commits.
 
-   - Code is pushed to both GitHub and Azure DevOps for visibility and traceability:
+6. **MongoDB URI Secured**
 
-     ```bash
-     git push origin main
-     git push azure main
-     ```
-
-6. **Configured Azure App Service to Pull from Azure DevOps Repo**
-
-   - In the App Service Deployment Center, linked the Azure DevOps repo for Continuous Deployment (CI/CD).
-   - `.env` variables such as `MONGODB_URI` are set through the App Service Configuration tab.
-
-7. **MongoDB URI Secured**
-
-   - Removed all secrets from the repository history using `git filter-repo`.
-   - App securely references credentials via:
+   - Removed from all commit history using `git filter-repo`.
+   - Referenced via:
 
      ```javascript
      const port = process.env.PORT || 3000;
      mongoose.connect(process.env.MONGODB_URI);
      ```
 
-8. **Tested Deployment Workflow**
+7. **Validated Deployment**
 
-   - Validated successful builds and live deployment via the Azure Dashboard.
+   - Confirmed end-to-end build and deployment through GitHub Actions logs and live website.
 
 ---
 
 ### 🔥 Deployment Workflow (Current)
 
-Whenever code changes are made:
-
 ```bash
 git add .
 git commit -m "Your commit message"
-git push origin main     # Pushes to GitHub and deploys via GitHub Integration
-git push azure main      # Mirrors changes to Azure DevOps
+git push origin main     # Triggers GitHub Actions and deploys to Azure
+git push azure main      # Optional: pushes to Azure DevOps for backup/tracking
 ```
 
 ---
